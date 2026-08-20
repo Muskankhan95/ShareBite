@@ -7,7 +7,7 @@ import { NotImplementedPanel } from "@/components/common/not-implemented-panel";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-export const Route = createFileRoute("/_authenticated/_authenticated/admin/")({
+export const Route = createFileRoute("/_authenticated/admin/")({
   component: AdminDashboard,
 });
 

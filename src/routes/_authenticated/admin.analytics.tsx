@@ -6,7 +6,7 @@ import { EmptyState } from "@/components/common/states";
 import { NotImplementedPanel } from "@/components/common/not-implemented-panel";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-export const Route = createFileRoute("/_authenticated/_authenticated/admin/analytics")({
+export const Route = createFileRoute("/_authenticated/admin/analytics")({
   component: AdminAnalytics,
 });
 

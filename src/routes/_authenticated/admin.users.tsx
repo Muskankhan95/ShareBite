@@ -4,7 +4,7 @@ import { ListScreen } from "@/components/dashboard/list-screen";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export const Route = createFileRoute("/_authenticated/_authenticated/admin/users")({
+export const Route = createFileRoute("/_authenticated/admin/users")({
   component: AdminUsers,
 });
 

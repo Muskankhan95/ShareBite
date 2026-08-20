@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Truck } from "lucide-react";
 import { ListScreen } from "@/components/dashboard/list-screen";
 
-export const Route = createFileRoute("/_authenticated/_authenticated/admin/volunteers")({
+export const Route = createFileRoute("/_authenticated/admin/volunteers")({
   component: AdminVolunteers,
 });
 

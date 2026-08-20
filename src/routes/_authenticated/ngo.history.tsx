@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { History } from "lucide-react";
 import { ListScreen } from "@/components/dashboard/list-screen";
 
-export const Route = createFileRoute("/_authenticated/_authenticated/ngo/history")({
+export const Route = createFileRoute("/_authenticated/ngo/history")({
   component: NgoHistory,
 });
 

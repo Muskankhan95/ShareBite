@@ -10,7 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export const Route = createFileRoute("/_authenticated/_authenticated/ngo/nearby")({
+export const Route = createFileRoute("/_authenticated/ngo/nearby")({
   component: NearbyFood,
 });
 

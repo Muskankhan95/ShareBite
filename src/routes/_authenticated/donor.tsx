@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { DashboardShell } from "@/components/layout/dashboard-shell";
 
-export const Route = createFileRoute("/_authenticated/_authenticated/donor")({
+export const Route = createFileRoute("/_authenticated/donor")({
   head: () => ({
     meta: [
       { title: "Donor Workspace — FoodRescue" },

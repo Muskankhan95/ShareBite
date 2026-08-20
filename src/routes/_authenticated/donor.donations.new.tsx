@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 
-export const Route = createFileRoute("/_authenticated/_authenticated/donor/donations/new")({
+export const Route = createFileRoute("/_authenticated/donor/donations/new")({
   component: CreateDonation,
 });
 
