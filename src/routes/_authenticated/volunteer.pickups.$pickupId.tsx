@@ -12,7 +12,7 @@ export const Route = createFileRoute("/_authenticated/volunteer/pickups/$pickupI
 });
 
 function PickupDetails() {
-  const { pickupId } = useParams({ from: "/volunteer/pickups/$pickupId" });
+  const { pickupId } = useParams({ from: "/_authenticated/volunteer/pickups/$pickupId" });
 
   return (
     <>

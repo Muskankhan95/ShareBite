@@ -12,7 +12,7 @@ export const Route = createFileRoute("/_authenticated/donor/donations/$donationI
 });
 
 function DonationDetails() {
-  const { donationId } = useParams({ from: "/donor/donations/$donationId" });
+  const { donationId } = useParams({ from: "/_authenticated/donor/donations/$donationId" });
 
   return (
     <>
