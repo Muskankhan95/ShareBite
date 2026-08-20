@@ -3,7 +3,7 @@ import { ClipboardList } from "lucide-react";
 import { ListScreen } from "@/components/dashboard/list-screen";
 import { Input } from "@/components/ui/input";
 
-export const Route = createFileRoute("/admin/donations")({
+export const Route = createFileRoute("/_authenticated/_authenticated/admin/donations")({
   component: AdminDonations,
 });
 

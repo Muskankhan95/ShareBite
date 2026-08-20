@@ -8,7 +8,7 @@ import { StatusBadge } from "@/components/common/status-badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-export const Route = createFileRoute("/ngo/")({
+export const Route = createFileRoute("/_authenticated/_authenticated/ngo/")({
   component: NgoDashboard,
 });
 

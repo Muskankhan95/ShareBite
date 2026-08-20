@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { DashboardShell } from "@/components/layout/dashboard-shell";
 
-export const Route = createFileRoute("/admin")({
+export const Route = createFileRoute("/_authenticated/_authenticated/admin")({
   head: () => ({
     meta: [
       { title: "Admin Workspace — FoodRescue" },

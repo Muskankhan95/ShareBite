@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Handshake } from "lucide-react";
 import { ListScreen } from "@/components/dashboard/list-screen";
 
-export const Route = createFileRoute("/ngo/accepted")({
+export const Route = createFileRoute("/_authenticated/_authenticated/ngo/accepted")({
   component: AcceptedDonations,
 });
 

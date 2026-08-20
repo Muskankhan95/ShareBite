@@ -7,7 +7,7 @@ import { StatusBadge } from "@/components/common/status-badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-export const Route = createFileRoute("/donor/donations/$donationId")({
+export const Route = createFileRoute("/_authenticated/_authenticated/donor/donations/$donationId")({
   component: DonationDetails,
 });
 

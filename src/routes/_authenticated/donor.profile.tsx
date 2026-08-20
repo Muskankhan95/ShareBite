@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProfileScreen } from "@/components/dashboard/profile-screen";
 
-export const Route = createFileRoute("/donor/profile")({
+export const Route = createFileRoute("/_authenticated/_authenticated/donor/profile")({
   component: () => (
     <ProfileScreen
       role="donor"

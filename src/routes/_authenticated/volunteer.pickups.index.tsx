@@ -10,7 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export const Route = createFileRoute("/volunteer/pickups/")({
+export const Route = createFileRoute("/_authenticated/_authenticated/volunteer/pickups/")({
   component: AvailablePickups,
 });
 

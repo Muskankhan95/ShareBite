@@ -10,44 +10,49 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AboutRouteImport } from './routes/about'
-import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as DonorRouteImport } from './routes/donor'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as LoginRouteImport } from './routes/login'
-import { Route as NgoRouteImport } from './routes/ngo'
 import { Route as RegisterRouteImport } from './routes/register'
-import { Route as VolunteerRouteImport } from './routes/volunteer'
-import { Route as AdminIndexRouteImport } from './routes/admin.index'
-import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
-import { Route as AdminDonationsRouteImport } from './routes/admin.donations'
-import { Route as AdminNgosRouteImport } from './routes/admin.ngos'
-import { Route as AdminReportsRouteImport } from './routes/admin.reports'
-import { Route as AdminUsersRouteImport } from './routes/admin.users'
-import { Route as AdminVolunteersRouteImport } from './routes/admin.volunteers'
-import { Route as DonorIndexRouteImport } from './routes/donor.index'
-import { Route as DonorHistoryRouteImport } from './routes/donor.history'
-import { Route as DonorProfileRouteImport } from './routes/donor.profile'
-import { Route as NgoIndexRouteImport } from './routes/ngo.index'
-import { Route as NgoAcceptedRouteImport } from './routes/ngo.accepted'
-import { Route as NgoHistoryRouteImport } from './routes/ngo.history'
-import { Route as NgoNearbyRouteImport } from './routes/ngo.nearby'
-import { Route as NgoProfileRouteImport } from './routes/ngo.profile'
-import { Route as NgoRequestsRouteImport } from './routes/ngo.requests'
-import { Route as VolunteerIndexRouteImport } from './routes/volunteer.index'
-import { Route as VolunteerHistoryRouteImport } from './routes/volunteer.history'
-import { Route as VolunteerMyPickupsRouteImport } from './routes/volunteer.my-pickups'
-import { Route as VolunteerProfileRouteImport } from './routes/volunteer.profile'
-import { Route as DonorDonationsIndexRouteImport } from './routes/donor.donations.index'
-import { Route as DonorDonationsDonationIdRouteImport } from './routes/donor.donations.$donationId'
-import { Route as DonorDonationsNewRouteImport } from './routes/donor.donations.new'
-import { Route as VolunteerPickupsIndexRouteImport } from './routes/volunteer.pickups.index'
-import { Route as VolunteerPickupsPickupIdRouteImport } from './routes/volunteer.pickups.$pickupId'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AuthenticatedDonorRouteImport } from './routes/_authenticated/donor'
+import { Route as AuthenticatedNgoRouteImport } from './routes/_authenticated/ngo'
+import { Route as AuthenticatedVolunteerRouteImport } from './routes/_authenticated/volunteer'
+import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
+import { Route as AuthenticatedAdminAnalyticsRouteImport } from './routes/_authenticated/admin.analytics'
+import { Route as AuthenticatedAdminDonationsRouteImport } from './routes/_authenticated/admin.donations'
+import { Route as AuthenticatedAdminNgosRouteImport } from './routes/_authenticated/admin.ngos'
+import { Route as AuthenticatedAdminReportsRouteImport } from './routes/_authenticated/admin.reports'
+import { Route as AuthenticatedAdminUsersRouteImport } from './routes/_authenticated/admin.users'
+import { Route as AuthenticatedAdminVolunteersRouteImport } from './routes/_authenticated/admin.volunteers'
+import { Route as AuthenticatedDonorIndexRouteImport } from './routes/_authenticated/donor.index'
+import { Route as AuthenticatedDonorHistoryRouteImport } from './routes/_authenticated/donor.history'
+import { Route as AuthenticatedDonorProfileRouteImport } from './routes/_authenticated/donor.profile'
+import { Route as AuthenticatedNgoIndexRouteImport } from './routes/_authenticated/ngo.index'
+import { Route as AuthenticatedNgoAcceptedRouteImport } from './routes/_authenticated/ngo.accepted'
+import { Route as AuthenticatedNgoHistoryRouteImport } from './routes/_authenticated/ngo.history'
+import { Route as AuthenticatedNgoNearbyRouteImport } from './routes/_authenticated/ngo.nearby'
+import { Route as AuthenticatedNgoProfileRouteImport } from './routes/_authenticated/ngo.profile'
+import { Route as AuthenticatedNgoRequestsRouteImport } from './routes/_authenticated/ngo.requests'
+import { Route as AuthenticatedVolunteerIndexRouteImport } from './routes/_authenticated/volunteer.index'
+import { Route as AuthenticatedVolunteerHistoryRouteImport } from './routes/_authenticated/volunteer.history'
+import { Route as AuthenticatedVolunteerMyPickupsRouteImport } from './routes/_authenticated/volunteer.my-pickups'
+import { Route as AuthenticatedVolunteerProfileRouteImport } from './routes/_authenticated/volunteer.profile'
+import { Route as AuthenticatedDonorDonationsIndexRouteImport } from './routes/_authenticated/donor.donations.index'
+import { Route as AuthenticatedDonorDonationsDonationIdRouteImport } from './routes/_authenticated/donor.donations.$donationId'
+import { Route as AuthenticatedDonorDonationsNewRouteImport } from './routes/_authenticated/donor.donations.new'
+import { Route as AuthenticatedVolunteerPickupsIndexRouteImport } from './routes/_authenticated/volunteer.pickups.index'
+import { Route as AuthenticatedVolunteerPickupsPickupIdRouteImport } from './routes/_authenticated/volunteer.pickups.$pickupId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -55,19 +60,9 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DonorRoute = DonorRouteImport.update({
-  id: '/donor',
-  path: '/donor',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HowItWorksRoute = HowItWorksRouteImport.update({
@@ -80,185 +75,210 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
-const NgoRoute = NgoRouteImport.update({
-  id: '/ngo',
-  path: '/ngo',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
   path: '/register',
   getParentRoute: () => rootRouteImport,
 } as any)
-const VolunteerRoute = VolunteerRouteImport.update({
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedDonorRoute = AuthenticatedDonorRouteImport.update({
+  id: '/donor',
+  path: '/donor',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedNgoRoute = AuthenticatedNgoRouteImport.update({
+  id: '/ngo',
+  path: '/ngo',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedVolunteerRoute = AuthenticatedVolunteerRouteImport.update({
   id: '/volunteer',
   path: '/volunteer',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AdminIndexRoute = AdminIndexRouteImport.update({
+const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => AdminRoute,
+  getParentRoute: () => AuthenticatedAdminRoute,
 } as any)
-const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
-  id: '/analytics',
-  path: '/analytics',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminDonationsRoute = AdminDonationsRouteImport.update({
-  id: '/donations',
-  path: '/donations',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminNgosRoute = AdminNgosRouteImport.update({
+const AuthenticatedAdminAnalyticsRoute =
+  AuthenticatedAdminAnalyticsRouteImport.update({
+    id: '/analytics',
+    path: '/analytics',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminDonationsRoute =
+  AuthenticatedAdminDonationsRouteImport.update({
+    id: '/donations',
+    path: '/donations',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminNgosRoute = AuthenticatedAdminNgosRouteImport.update({
   id: '/ngos',
   path: '/ngos',
-  getParentRoute: () => AdminRoute,
+  getParentRoute: () => AuthenticatedAdminRoute,
 } as any)
-const AdminReportsRoute = AdminReportsRouteImport.update({
-  id: '/reports',
-  path: '/reports',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminUsersRoute = AdminUsersRouteImport.update({
+const AuthenticatedAdminReportsRoute =
+  AuthenticatedAdminReportsRouteImport.update({
+    id: '/reports',
+    path: '/reports',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminUsersRoute = AuthenticatedAdminUsersRouteImport.update({
   id: '/users',
   path: '/users',
-  getParentRoute: () => AdminRoute,
+  getParentRoute: () => AuthenticatedAdminRoute,
 } as any)
-const AdminVolunteersRoute = AdminVolunteersRouteImport.update({
-  id: '/volunteers',
-  path: '/volunteers',
-  getParentRoute: () => AdminRoute,
-} as any)
-const DonorIndexRoute = DonorIndexRouteImport.update({
+const AuthenticatedAdminVolunteersRoute =
+  AuthenticatedAdminVolunteersRouteImport.update({
+    id: '/volunteers',
+    path: '/volunteers',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedDonorIndexRoute = AuthenticatedDonorIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => DonorRoute,
+  getParentRoute: () => AuthenticatedDonorRoute,
 } as any)
-const DonorHistoryRoute = DonorHistoryRouteImport.update({
-  id: '/history',
-  path: '/history',
-  getParentRoute: () => DonorRoute,
-} as any)
-const DonorProfileRoute = DonorProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => DonorRoute,
-} as any)
-const NgoIndexRoute = NgoIndexRouteImport.update({
+const AuthenticatedDonorHistoryRoute =
+  AuthenticatedDonorHistoryRouteImport.update({
+    id: '/history',
+    path: '/history',
+    getParentRoute: () => AuthenticatedDonorRoute,
+  } as any)
+const AuthenticatedDonorProfileRoute =
+  AuthenticatedDonorProfileRouteImport.update({
+    id: '/profile',
+    path: '/profile',
+    getParentRoute: () => AuthenticatedDonorRoute,
+  } as any)
+const AuthenticatedNgoIndexRoute = AuthenticatedNgoIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => NgoRoute,
+  getParentRoute: () => AuthenticatedNgoRoute,
 } as any)
-const NgoAcceptedRoute = NgoAcceptedRouteImport.update({
-  id: '/accepted',
-  path: '/accepted',
-  getParentRoute: () => NgoRoute,
-} as any)
-const NgoHistoryRoute = NgoHistoryRouteImport.update({
+const AuthenticatedNgoAcceptedRoute =
+  AuthenticatedNgoAcceptedRouteImport.update({
+    id: '/accepted',
+    path: '/accepted',
+    getParentRoute: () => AuthenticatedNgoRoute,
+  } as any)
+const AuthenticatedNgoHistoryRoute = AuthenticatedNgoHistoryRouteImport.update({
   id: '/history',
   path: '/history',
-  getParentRoute: () => NgoRoute,
+  getParentRoute: () => AuthenticatedNgoRoute,
 } as any)
-const NgoNearbyRoute = NgoNearbyRouteImport.update({
+const AuthenticatedNgoNearbyRoute = AuthenticatedNgoNearbyRouteImport.update({
   id: '/nearby',
   path: '/nearby',
-  getParentRoute: () => NgoRoute,
+  getParentRoute: () => AuthenticatedNgoRoute,
 } as any)
-const NgoProfileRoute = NgoProfileRouteImport.update({
+const AuthenticatedNgoProfileRoute = AuthenticatedNgoProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
-  getParentRoute: () => NgoRoute,
+  getParentRoute: () => AuthenticatedNgoRoute,
 } as any)
-const NgoRequestsRoute = NgoRequestsRouteImport.update({
-  id: '/requests',
-  path: '/requests',
-  getParentRoute: () => NgoRoute,
-} as any)
-const VolunteerIndexRoute = VolunteerIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => VolunteerRoute,
-} as any)
-const VolunteerHistoryRoute = VolunteerHistoryRouteImport.update({
-  id: '/history',
-  path: '/history',
-  getParentRoute: () => VolunteerRoute,
-} as any)
-const VolunteerMyPickupsRoute = VolunteerMyPickupsRouteImport.update({
-  id: '/my-pickups',
-  path: '/my-pickups',
-  getParentRoute: () => VolunteerRoute,
-} as any)
-const VolunteerProfileRoute = VolunteerProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => VolunteerRoute,
-} as any)
-const DonorDonationsIndexRoute = DonorDonationsIndexRouteImport.update({
-  id: '/donations/',
-  path: '/donations/',
-  getParentRoute: () => DonorRoute,
-} as any)
-const DonorDonationsDonationIdRoute =
-  DonorDonationsDonationIdRouteImport.update({
+const AuthenticatedNgoRequestsRoute =
+  AuthenticatedNgoRequestsRouteImport.update({
+    id: '/requests',
+    path: '/requests',
+    getParentRoute: () => AuthenticatedNgoRoute,
+  } as any)
+const AuthenticatedVolunteerIndexRoute =
+  AuthenticatedVolunteerIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AuthenticatedVolunteerRoute,
+  } as any)
+const AuthenticatedVolunteerHistoryRoute =
+  AuthenticatedVolunteerHistoryRouteImport.update({
+    id: '/history',
+    path: '/history',
+    getParentRoute: () => AuthenticatedVolunteerRoute,
+  } as any)
+const AuthenticatedVolunteerMyPickupsRoute =
+  AuthenticatedVolunteerMyPickupsRouteImport.update({
+    id: '/my-pickups',
+    path: '/my-pickups',
+    getParentRoute: () => AuthenticatedVolunteerRoute,
+  } as any)
+const AuthenticatedVolunteerProfileRoute =
+  AuthenticatedVolunteerProfileRouteImport.update({
+    id: '/profile',
+    path: '/profile',
+    getParentRoute: () => AuthenticatedVolunteerRoute,
+  } as any)
+const AuthenticatedDonorDonationsIndexRoute =
+  AuthenticatedDonorDonationsIndexRouteImport.update({
+    id: '/donations/',
+    path: '/donations/',
+    getParentRoute: () => AuthenticatedDonorRoute,
+  } as any)
+const AuthenticatedDonorDonationsDonationIdRoute =
+  AuthenticatedDonorDonationsDonationIdRouteImport.update({
     id: '/donations/$donationId',
     path: '/donations/$donationId',
-    getParentRoute: () => DonorRoute,
+    getParentRoute: () => AuthenticatedDonorRoute,
   } as any)
-const DonorDonationsNewRoute = DonorDonationsNewRouteImport.update({
-  id: '/donations/new',
-  path: '/donations/new',
-  getParentRoute: () => DonorRoute,
-} as any)
-const VolunteerPickupsIndexRoute = VolunteerPickupsIndexRouteImport.update({
-  id: '/pickups/',
-  path: '/pickups/',
-  getParentRoute: () => VolunteerRoute,
-} as any)
-const VolunteerPickupsPickupIdRoute =
-  VolunteerPickupsPickupIdRouteImport.update({
+const AuthenticatedDonorDonationsNewRoute =
+  AuthenticatedDonorDonationsNewRouteImport.update({
+    id: '/donations/new',
+    path: '/donations/new',
+    getParentRoute: () => AuthenticatedDonorRoute,
+  } as any)
+const AuthenticatedVolunteerPickupsIndexRoute =
+  AuthenticatedVolunteerPickupsIndexRouteImport.update({
+    id: '/pickups/',
+    path: '/pickups/',
+    getParentRoute: () => AuthenticatedVolunteerRoute,
+  } as any)
+const AuthenticatedVolunteerPickupsPickupIdRoute =
+  AuthenticatedVolunteerPickupsPickupIdRouteImport.update({
     id: '/pickups/$pickupId',
     path: '/pickups/$pickupId',
-    getParentRoute: () => VolunteerRoute,
+    getParentRoute: () => AuthenticatedVolunteerRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/admin': typeof AdminRouteWithChildren
   '/contact': typeof ContactRoute
-  '/donor': typeof DonorRouteWithChildren
   '/how-it-works': typeof HowItWorksRoute
   '/login': typeof LoginRoute
-  '/ngo': typeof NgoRouteWithChildren
   '/register': typeof RegisterRoute
-  '/volunteer': typeof VolunteerRouteWithChildren
-  '/admin/analytics': typeof AdminAnalyticsRoute
-  '/admin/donations': typeof AdminDonationsRoute
-  '/admin/ngos': typeof AdminNgosRoute
-  '/admin/reports': typeof AdminReportsRoute
-  '/admin/users': typeof AdminUsersRoute
-  '/admin/volunteers': typeof AdminVolunteersRoute
-  '/donor/history': typeof DonorHistoryRoute
-  '/donor/profile': typeof DonorProfileRoute
-  '/ngo/accepted': typeof NgoAcceptedRoute
-  '/ngo/history': typeof NgoHistoryRoute
-  '/ngo/nearby': typeof NgoNearbyRoute
-  '/ngo/profile': typeof NgoProfileRoute
-  '/ngo/requests': typeof NgoRequestsRoute
-  '/volunteer/history': typeof VolunteerHistoryRoute
-  '/volunteer/my-pickups': typeof VolunteerMyPickupsRoute
-  '/volunteer/profile': typeof VolunteerProfileRoute
-  '/admin/': typeof AdminIndexRoute
-  '/donor/': typeof DonorIndexRoute
-  '/ngo/': typeof NgoIndexRoute
-  '/volunteer/': typeof VolunteerIndexRoute
-  '/donor/donations/$donationId': typeof DonorDonationsDonationIdRoute
-  '/donor/donations/new': typeof DonorDonationsNewRoute
-  '/volunteer/pickups/$pickupId': typeof VolunteerPickupsPickupIdRoute
-  '/donor/donations/': typeof DonorDonationsIndexRoute
-  '/volunteer/pickups/': typeof VolunteerPickupsIndexRoute
+  '/admin': typeof AuthenticatedAdminRouteWithChildren
+  '/donor': typeof AuthenticatedDonorRouteWithChildren
+  '/ngo': typeof AuthenticatedNgoRouteWithChildren
+  '/volunteer': typeof AuthenticatedVolunteerRouteWithChildren
+  '/admin/analytics': typeof AuthenticatedAdminAnalyticsRoute
+  '/admin/donations': typeof AuthenticatedAdminDonationsRoute
+  '/admin/ngos': typeof AuthenticatedAdminNgosRoute
+  '/admin/reports': typeof AuthenticatedAdminReportsRoute
+  '/admin/users': typeof AuthenticatedAdminUsersRoute
+  '/admin/volunteers': typeof AuthenticatedAdminVolunteersRoute
+  '/donor/history': typeof AuthenticatedDonorHistoryRoute
+  '/donor/profile': typeof AuthenticatedDonorProfileRoute
+  '/ngo/accepted': typeof AuthenticatedNgoAcceptedRoute
+  '/ngo/history': typeof AuthenticatedNgoHistoryRoute
+  '/ngo/nearby': typeof AuthenticatedNgoNearbyRoute
+  '/ngo/profile': typeof AuthenticatedNgoProfileRoute
+  '/ngo/requests': typeof AuthenticatedNgoRequestsRoute
+  '/volunteer/history': typeof AuthenticatedVolunteerHistoryRoute
+  '/volunteer/my-pickups': typeof AuthenticatedVolunteerMyPickupsRoute
+  '/volunteer/profile': typeof AuthenticatedVolunteerProfileRoute
+  '/admin/': typeof AuthenticatedAdminIndexRoute
+  '/donor/': typeof AuthenticatedDonorIndexRoute
+  '/ngo/': typeof AuthenticatedNgoIndexRoute
+  '/volunteer/': typeof AuthenticatedVolunteerIndexRoute
+  '/donor/donations/$donationId': typeof AuthenticatedDonorDonationsDonationIdRoute
+  '/donor/donations/new': typeof AuthenticatedDonorDonationsNewRoute
+  '/volunteer/pickups/$pickupId': typeof AuthenticatedVolunteerPickupsPickupIdRoute
+  '/donor/donations/': typeof AuthenticatedDonorDonationsIndexRoute
+  '/volunteer/pickups/': typeof AuthenticatedVolunteerPickupsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -267,82 +287,83 @@ export interface FileRoutesByTo {
   '/how-it-works': typeof HowItWorksRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
-  '/admin/analytics': typeof AdminAnalyticsRoute
-  '/admin/donations': typeof AdminDonationsRoute
-  '/admin/ngos': typeof AdminNgosRoute
-  '/admin/reports': typeof AdminReportsRoute
-  '/admin/users': typeof AdminUsersRoute
-  '/admin/volunteers': typeof AdminVolunteersRoute
-  '/donor/history': typeof DonorHistoryRoute
-  '/donor/profile': typeof DonorProfileRoute
-  '/ngo/accepted': typeof NgoAcceptedRoute
-  '/ngo/history': typeof NgoHistoryRoute
-  '/ngo/nearby': typeof NgoNearbyRoute
-  '/ngo/profile': typeof NgoProfileRoute
-  '/ngo/requests': typeof NgoRequestsRoute
-  '/volunteer/history': typeof VolunteerHistoryRoute
-  '/volunteer/my-pickups': typeof VolunteerMyPickupsRoute
-  '/volunteer/profile': typeof VolunteerProfileRoute
-  '/admin': typeof AdminIndexRoute
-  '/donor': typeof DonorIndexRoute
-  '/ngo': typeof NgoIndexRoute
-  '/volunteer': typeof VolunteerIndexRoute
-  '/donor/donations/$donationId': typeof DonorDonationsDonationIdRoute
-  '/donor/donations/new': typeof DonorDonationsNewRoute
-  '/volunteer/pickups/$pickupId': typeof VolunteerPickupsPickupIdRoute
-  '/donor/donations': typeof DonorDonationsIndexRoute
-  '/volunteer/pickups': typeof VolunteerPickupsIndexRoute
+  '/admin/analytics': typeof AuthenticatedAdminAnalyticsRoute
+  '/admin/donations': typeof AuthenticatedAdminDonationsRoute
+  '/admin/ngos': typeof AuthenticatedAdminNgosRoute
+  '/admin/reports': typeof AuthenticatedAdminReportsRoute
+  '/admin/users': typeof AuthenticatedAdminUsersRoute
+  '/admin/volunteers': typeof AuthenticatedAdminVolunteersRoute
+  '/donor/history': typeof AuthenticatedDonorHistoryRoute
+  '/donor/profile': typeof AuthenticatedDonorProfileRoute
+  '/ngo/accepted': typeof AuthenticatedNgoAcceptedRoute
+  '/ngo/history': typeof AuthenticatedNgoHistoryRoute
+  '/ngo/nearby': typeof AuthenticatedNgoNearbyRoute
+  '/ngo/profile': typeof AuthenticatedNgoProfileRoute
+  '/ngo/requests': typeof AuthenticatedNgoRequestsRoute
+  '/volunteer/history': typeof AuthenticatedVolunteerHistoryRoute
+  '/volunteer/my-pickups': typeof AuthenticatedVolunteerMyPickupsRoute
+  '/volunteer/profile': typeof AuthenticatedVolunteerProfileRoute
+  '/admin': typeof AuthenticatedAdminIndexRoute
+  '/donor': typeof AuthenticatedDonorIndexRoute
+  '/ngo': typeof AuthenticatedNgoIndexRoute
+  '/volunteer': typeof AuthenticatedVolunteerIndexRoute
+  '/donor/donations/$donationId': typeof AuthenticatedDonorDonationsDonationIdRoute
+  '/donor/donations/new': typeof AuthenticatedDonorDonationsNewRoute
+  '/volunteer/pickups/$pickupId': typeof AuthenticatedVolunteerPickupsPickupIdRoute
+  '/donor/donations': typeof AuthenticatedDonorDonationsIndexRoute
+  '/volunteer/pickups': typeof AuthenticatedVolunteerPickupsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
-  '/admin': typeof AdminRouteWithChildren
   '/contact': typeof ContactRoute
-  '/donor': typeof DonorRouteWithChildren
   '/how-it-works': typeof HowItWorksRoute
   '/login': typeof LoginRoute
-  '/ngo': typeof NgoRouteWithChildren
   '/register': typeof RegisterRoute
-  '/volunteer': typeof VolunteerRouteWithChildren
-  '/admin/analytics': typeof AdminAnalyticsRoute
-  '/admin/donations': typeof AdminDonationsRoute
-  '/admin/ngos': typeof AdminNgosRoute
-  '/admin/reports': typeof AdminReportsRoute
-  '/admin/users': typeof AdminUsersRoute
-  '/admin/volunteers': typeof AdminVolunteersRoute
-  '/donor/history': typeof DonorHistoryRoute
-  '/donor/profile': typeof DonorProfileRoute
-  '/ngo/accepted': typeof NgoAcceptedRoute
-  '/ngo/history': typeof NgoHistoryRoute
-  '/ngo/nearby': typeof NgoNearbyRoute
-  '/ngo/profile': typeof NgoProfileRoute
-  '/ngo/requests': typeof NgoRequestsRoute
-  '/volunteer/history': typeof VolunteerHistoryRoute
-  '/volunteer/my-pickups': typeof VolunteerMyPickupsRoute
-  '/volunteer/profile': typeof VolunteerProfileRoute
-  '/admin/': typeof AdminIndexRoute
-  '/donor/': typeof DonorIndexRoute
-  '/ngo/': typeof NgoIndexRoute
-  '/volunteer/': typeof VolunteerIndexRoute
-  '/donor/donations/$donationId': typeof DonorDonationsDonationIdRoute
-  '/donor/donations/new': typeof DonorDonationsNewRoute
-  '/volunteer/pickups/$pickupId': typeof VolunteerPickupsPickupIdRoute
-  '/donor/donations/': typeof DonorDonationsIndexRoute
-  '/volunteer/pickups/': typeof VolunteerPickupsIndexRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
+  '/_authenticated/donor': typeof AuthenticatedDonorRouteWithChildren
+  '/_authenticated/ngo': typeof AuthenticatedNgoRouteWithChildren
+  '/_authenticated/volunteer': typeof AuthenticatedVolunteerRouteWithChildren
+  '/_authenticated/admin/analytics': typeof AuthenticatedAdminAnalyticsRoute
+  '/_authenticated/admin/donations': typeof AuthenticatedAdminDonationsRoute
+  '/_authenticated/admin/ngos': typeof AuthenticatedAdminNgosRoute
+  '/_authenticated/admin/reports': typeof AuthenticatedAdminReportsRoute
+  '/_authenticated/admin/users': typeof AuthenticatedAdminUsersRoute
+  '/_authenticated/admin/volunteers': typeof AuthenticatedAdminVolunteersRoute
+  '/_authenticated/donor/history': typeof AuthenticatedDonorHistoryRoute
+  '/_authenticated/donor/profile': typeof AuthenticatedDonorProfileRoute
+  '/_authenticated/ngo/accepted': typeof AuthenticatedNgoAcceptedRoute
+  '/_authenticated/ngo/history': typeof AuthenticatedNgoHistoryRoute
+  '/_authenticated/ngo/nearby': typeof AuthenticatedNgoNearbyRoute
+  '/_authenticated/ngo/profile': typeof AuthenticatedNgoProfileRoute
+  '/_authenticated/ngo/requests': typeof AuthenticatedNgoRequestsRoute
+  '/_authenticated/volunteer/history': typeof AuthenticatedVolunteerHistoryRoute
+  '/_authenticated/volunteer/my-pickups': typeof AuthenticatedVolunteerMyPickupsRoute
+  '/_authenticated/volunteer/profile': typeof AuthenticatedVolunteerProfileRoute
+  '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
+  '/_authenticated/donor/': typeof AuthenticatedDonorIndexRoute
+  '/_authenticated/ngo/': typeof AuthenticatedNgoIndexRoute
+  '/_authenticated/volunteer/': typeof AuthenticatedVolunteerIndexRoute
+  '/_authenticated/donor/donations/$donationId': typeof AuthenticatedDonorDonationsDonationIdRoute
+  '/_authenticated/donor/donations/new': typeof AuthenticatedDonorDonationsNewRoute
+  '/_authenticated/volunteer/pickups/$pickupId': typeof AuthenticatedVolunteerPickupsPickupIdRoute
+  '/_authenticated/donor/donations/': typeof AuthenticatedDonorDonationsIndexRoute
+  '/_authenticated/volunteer/pickups/': typeof AuthenticatedVolunteerPickupsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
-    | '/admin'
     | '/contact'
-    | '/donor'
     | '/how-it-works'
     | '/login'
-    | '/ngo'
     | '/register'
+    | '/admin'
+    | '/donor'
+    | '/ngo'
     | '/volunteer'
     | '/admin/analytics'
     | '/admin/donations'
@@ -405,53 +426,51 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
     | '/about'
-    | '/admin'
     | '/contact'
-    | '/donor'
     | '/how-it-works'
     | '/login'
-    | '/ngo'
     | '/register'
-    | '/volunteer'
-    | '/admin/analytics'
-    | '/admin/donations'
-    | '/admin/ngos'
-    | '/admin/reports'
-    | '/admin/users'
-    | '/admin/volunteers'
-    | '/donor/history'
-    | '/donor/profile'
-    | '/ngo/accepted'
-    | '/ngo/history'
-    | '/ngo/nearby'
-    | '/ngo/profile'
-    | '/ngo/requests'
-    | '/volunteer/history'
-    | '/volunteer/my-pickups'
-    | '/volunteer/profile'
-    | '/admin/'
-    | '/donor/'
-    | '/ngo/'
-    | '/volunteer/'
-    | '/donor/donations/$donationId'
-    | '/donor/donations/new'
-    | '/volunteer/pickups/$pickupId'
-    | '/donor/donations/'
-    | '/volunteer/pickups/'
+    | '/_authenticated/admin'
+    | '/_authenticated/donor'
+    | '/_authenticated/ngo'
+    | '/_authenticated/volunteer'
+    | '/_authenticated/admin/analytics'
+    | '/_authenticated/admin/donations'
+    | '/_authenticated/admin/ngos'
+    | '/_authenticated/admin/reports'
+    | '/_authenticated/admin/users'
+    | '/_authenticated/admin/volunteers'
+    | '/_authenticated/donor/history'
+    | '/_authenticated/donor/profile'
+    | '/_authenticated/ngo/accepted'
+    | '/_authenticated/ngo/history'
+    | '/_authenticated/ngo/nearby'
+    | '/_authenticated/ngo/profile'
+    | '/_authenticated/ngo/requests'
+    | '/_authenticated/volunteer/history'
+    | '/_authenticated/volunteer/my-pickups'
+    | '/_authenticated/volunteer/profile'
+    | '/_authenticated/admin/'
+    | '/_authenticated/donor/'
+    | '/_authenticated/ngo/'
+    | '/_authenticated/volunteer/'
+    | '/_authenticated/donor/donations/$donationId'
+    | '/_authenticated/donor/donations/new'
+    | '/_authenticated/volunteer/pickups/$pickupId'
+    | '/_authenticated/donor/donations/'
+    | '/_authenticated/volunteer/pickups/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
-  AdminRoute: typeof AdminRouteWithChildren
   ContactRoute: typeof ContactRoute
-  DonorRoute: typeof DonorRouteWithChildren
   HowItWorksRoute: typeof HowItWorksRoute
   LoginRoute: typeof LoginRoute
-  NgoRoute: typeof NgoRouteWithChildren
   RegisterRoute: typeof RegisterRoute
-  VolunteerRoute: typeof VolunteerRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -463,6 +482,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -470,25 +496,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/donor': {
-      id: '/donor'
-      path: '/donor'
-      fullPath: '/donor'
-      preLoaderRoute: typeof DonorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/how-it-works': {
@@ -505,13 +517,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/ngo': {
-      id: '/ngo'
-      path: '/ngo'
-      fullPath: '/ngo'
-      preLoaderRoute: typeof NgoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/register': {
       id: '/register'
       path: '/register'
@@ -519,286 +524,329 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RegisterRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/volunteer': {
-      id: '/volunteer'
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/donor': {
+      id: '/_authenticated/donor'
+      path: '/donor'
+      fullPath: '/donor'
+      preLoaderRoute: typeof AuthenticatedDonorRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/ngo': {
+      id: '/_authenticated/ngo'
+      path: '/ngo'
+      fullPath: '/ngo'
+      preLoaderRoute: typeof AuthenticatedNgoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/volunteer': {
+      id: '/_authenticated/volunteer'
       path: '/volunteer'
       fullPath: '/volunteer'
-      preLoaderRoute: typeof VolunteerRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedVolunteerRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/admin/': {
-      id: '/admin/'
+    '/_authenticated/admin/': {
+      id: '/_authenticated/admin/'
       path: '/'
       fullPath: '/admin/'
-      preLoaderRoute: typeof AdminIndexRouteImport
-      parentRoute: typeof AdminRoute
+      preLoaderRoute: typeof AuthenticatedAdminIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/admin/analytics': {
-      id: '/admin/analytics'
+    '/_authenticated/admin/analytics': {
+      id: '/_authenticated/admin/analytics'
       path: '/analytics'
       fullPath: '/admin/analytics'
-      preLoaderRoute: typeof AdminAnalyticsRouteImport
-      parentRoute: typeof AdminRoute
+      preLoaderRoute: typeof AuthenticatedAdminAnalyticsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/admin/donations': {
-      id: '/admin/donations'
+    '/_authenticated/admin/donations': {
+      id: '/_authenticated/admin/donations'
       path: '/donations'
       fullPath: '/admin/donations'
-      preLoaderRoute: typeof AdminDonationsRouteImport
-      parentRoute: typeof AdminRoute
+      preLoaderRoute: typeof AuthenticatedAdminDonationsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/admin/ngos': {
-      id: '/admin/ngos'
+    '/_authenticated/admin/ngos': {
+      id: '/_authenticated/admin/ngos'
       path: '/ngos'
       fullPath: '/admin/ngos'
-      preLoaderRoute: typeof AdminNgosRouteImport
-      parentRoute: typeof AdminRoute
+      preLoaderRoute: typeof AuthenticatedAdminNgosRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/admin/reports': {
-      id: '/admin/reports'
+    '/_authenticated/admin/reports': {
+      id: '/_authenticated/admin/reports'
       path: '/reports'
       fullPath: '/admin/reports'
-      preLoaderRoute: typeof AdminReportsRouteImport
-      parentRoute: typeof AdminRoute
+      preLoaderRoute: typeof AuthenticatedAdminReportsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/admin/users': {
-      id: '/admin/users'
+    '/_authenticated/admin/users': {
+      id: '/_authenticated/admin/users'
       path: '/users'
       fullPath: '/admin/users'
-      preLoaderRoute: typeof AdminUsersRouteImport
-      parentRoute: typeof AdminRoute
+      preLoaderRoute: typeof AuthenticatedAdminUsersRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/admin/volunteers': {
-      id: '/admin/volunteers'
+    '/_authenticated/admin/volunteers': {
+      id: '/_authenticated/admin/volunteers'
       path: '/volunteers'
       fullPath: '/admin/volunteers'
-      preLoaderRoute: typeof AdminVolunteersRouteImport
-      parentRoute: typeof AdminRoute
+      preLoaderRoute: typeof AuthenticatedAdminVolunteersRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/donor/': {
-      id: '/donor/'
+    '/_authenticated/donor/': {
+      id: '/_authenticated/donor/'
       path: '/'
       fullPath: '/donor/'
-      preLoaderRoute: typeof DonorIndexRouteImport
-      parentRoute: typeof DonorRoute
+      preLoaderRoute: typeof AuthenticatedDonorIndexRouteImport
+      parentRoute: typeof AuthenticatedDonorRoute
     }
-    '/donor/history': {
-      id: '/donor/history'
+    '/_authenticated/donor/history': {
+      id: '/_authenticated/donor/history'
       path: '/history'
       fullPath: '/donor/history'
-      preLoaderRoute: typeof DonorHistoryRouteImport
-      parentRoute: typeof DonorRoute
+      preLoaderRoute: typeof AuthenticatedDonorHistoryRouteImport
+      parentRoute: typeof AuthenticatedDonorRoute
     }
-    '/donor/profile': {
-      id: '/donor/profile'
+    '/_authenticated/donor/profile': {
+      id: '/_authenticated/donor/profile'
       path: '/profile'
       fullPath: '/donor/profile'
-      preLoaderRoute: typeof DonorProfileRouteImport
-      parentRoute: typeof DonorRoute
+      preLoaderRoute: typeof AuthenticatedDonorProfileRouteImport
+      parentRoute: typeof AuthenticatedDonorRoute
     }
-    '/ngo/': {
-      id: '/ngo/'
+    '/_authenticated/ngo/': {
+      id: '/_authenticated/ngo/'
       path: '/'
       fullPath: '/ngo/'
-      preLoaderRoute: typeof NgoIndexRouteImport
-      parentRoute: typeof NgoRoute
+      preLoaderRoute: typeof AuthenticatedNgoIndexRouteImport
+      parentRoute: typeof AuthenticatedNgoRoute
     }
-    '/ngo/accepted': {
-      id: '/ngo/accepted'
+    '/_authenticated/ngo/accepted': {
+      id: '/_authenticated/ngo/accepted'
       path: '/accepted'
       fullPath: '/ngo/accepted'
-      preLoaderRoute: typeof NgoAcceptedRouteImport
-      parentRoute: typeof NgoRoute
+      preLoaderRoute: typeof AuthenticatedNgoAcceptedRouteImport
+      parentRoute: typeof AuthenticatedNgoRoute
     }
-    '/ngo/history': {
-      id: '/ngo/history'
+    '/_authenticated/ngo/history': {
+      id: '/_authenticated/ngo/history'
       path: '/history'
       fullPath: '/ngo/history'
-      preLoaderRoute: typeof NgoHistoryRouteImport
-      parentRoute: typeof NgoRoute
+      preLoaderRoute: typeof AuthenticatedNgoHistoryRouteImport
+      parentRoute: typeof AuthenticatedNgoRoute
     }
-    '/ngo/nearby': {
-      id: '/ngo/nearby'
+    '/_authenticated/ngo/nearby': {
+      id: '/_authenticated/ngo/nearby'
       path: '/nearby'
       fullPath: '/ngo/nearby'
-      preLoaderRoute: typeof NgoNearbyRouteImport
-      parentRoute: typeof NgoRoute
+      preLoaderRoute: typeof AuthenticatedNgoNearbyRouteImport
+      parentRoute: typeof AuthenticatedNgoRoute
     }
-    '/ngo/profile': {
-      id: '/ngo/profile'
+    '/_authenticated/ngo/profile': {
+      id: '/_authenticated/ngo/profile'
       path: '/profile'
       fullPath: '/ngo/profile'
-      preLoaderRoute: typeof NgoProfileRouteImport
-      parentRoute: typeof NgoRoute
+      preLoaderRoute: typeof AuthenticatedNgoProfileRouteImport
+      parentRoute: typeof AuthenticatedNgoRoute
     }
-    '/ngo/requests': {
-      id: '/ngo/requests'
+    '/_authenticated/ngo/requests': {
+      id: '/_authenticated/ngo/requests'
       path: '/requests'
       fullPath: '/ngo/requests'
-      preLoaderRoute: typeof NgoRequestsRouteImport
-      parentRoute: typeof NgoRoute
+      preLoaderRoute: typeof AuthenticatedNgoRequestsRouteImport
+      parentRoute: typeof AuthenticatedNgoRoute
     }
-    '/volunteer/': {
-      id: '/volunteer/'
+    '/_authenticated/volunteer/': {
+      id: '/_authenticated/volunteer/'
       path: '/'
       fullPath: '/volunteer/'
-      preLoaderRoute: typeof VolunteerIndexRouteImport
-      parentRoute: typeof VolunteerRoute
+      preLoaderRoute: typeof AuthenticatedVolunteerIndexRouteImport
+      parentRoute: typeof AuthenticatedVolunteerRoute
     }
-    '/volunteer/history': {
-      id: '/volunteer/history'
+    '/_authenticated/volunteer/history': {
+      id: '/_authenticated/volunteer/history'
       path: '/history'
       fullPath: '/volunteer/history'
-      preLoaderRoute: typeof VolunteerHistoryRouteImport
-      parentRoute: typeof VolunteerRoute
+      preLoaderRoute: typeof AuthenticatedVolunteerHistoryRouteImport
+      parentRoute: typeof AuthenticatedVolunteerRoute
     }
-    '/volunteer/my-pickups': {
-      id: '/volunteer/my-pickups'
+    '/_authenticated/volunteer/my-pickups': {
+      id: '/_authenticated/volunteer/my-pickups'
       path: '/my-pickups'
       fullPath: '/volunteer/my-pickups'
-      preLoaderRoute: typeof VolunteerMyPickupsRouteImport
-      parentRoute: typeof VolunteerRoute
+      preLoaderRoute: typeof AuthenticatedVolunteerMyPickupsRouteImport
+      parentRoute: typeof AuthenticatedVolunteerRoute
     }
-    '/volunteer/profile': {
-      id: '/volunteer/profile'
+    '/_authenticated/volunteer/profile': {
+      id: '/_authenticated/volunteer/profile'
       path: '/profile'
       fullPath: '/volunteer/profile'
-      preLoaderRoute: typeof VolunteerProfileRouteImport
-      parentRoute: typeof VolunteerRoute
+      preLoaderRoute: typeof AuthenticatedVolunteerProfileRouteImport
+      parentRoute: typeof AuthenticatedVolunteerRoute
     }
-    '/donor/donations/': {
-      id: '/donor/donations/'
+    '/_authenticated/donor/donations/': {
+      id: '/_authenticated/donor/donations/'
       path: '/donations'
       fullPath: '/donor/donations/'
-      preLoaderRoute: typeof DonorDonationsIndexRouteImport
-      parentRoute: typeof DonorRoute
+      preLoaderRoute: typeof AuthenticatedDonorDonationsIndexRouteImport
+      parentRoute: typeof AuthenticatedDonorRoute
     }
-    '/donor/donations/$donationId': {
-      id: '/donor/donations/$donationId'
+    '/_authenticated/donor/donations/$donationId': {
+      id: '/_authenticated/donor/donations/$donationId'
       path: '/donations/$donationId'
       fullPath: '/donor/donations/$donationId'
-      preLoaderRoute: typeof DonorDonationsDonationIdRouteImport
-      parentRoute: typeof DonorRoute
+      preLoaderRoute: typeof AuthenticatedDonorDonationsDonationIdRouteImport
+      parentRoute: typeof AuthenticatedDonorRoute
     }
-    '/donor/donations/new': {
-      id: '/donor/donations/new'
+    '/_authenticated/donor/donations/new': {
+      id: '/_authenticated/donor/donations/new'
       path: '/donations/new'
       fullPath: '/donor/donations/new'
-      preLoaderRoute: typeof DonorDonationsNewRouteImport
-      parentRoute: typeof DonorRoute
+      preLoaderRoute: typeof AuthenticatedDonorDonationsNewRouteImport
+      parentRoute: typeof AuthenticatedDonorRoute
     }
-    '/volunteer/pickups/': {
-      id: '/volunteer/pickups/'
+    '/_authenticated/volunteer/pickups/': {
+      id: '/_authenticated/volunteer/pickups/'
       path: '/pickups'
       fullPath: '/volunteer/pickups/'
-      preLoaderRoute: typeof VolunteerPickupsIndexRouteImport
-      parentRoute: typeof VolunteerRoute
+      preLoaderRoute: typeof AuthenticatedVolunteerPickupsIndexRouteImport
+      parentRoute: typeof AuthenticatedVolunteerRoute
     }
-    '/volunteer/pickups/$pickupId': {
-      id: '/volunteer/pickups/$pickupId'
+    '/_authenticated/volunteer/pickups/$pickupId': {
+      id: '/_authenticated/volunteer/pickups/$pickupId'
       path: '/pickups/$pickupId'
       fullPath: '/volunteer/pickups/$pickupId'
-      preLoaderRoute: typeof VolunteerPickupsPickupIdRouteImport
-      parentRoute: typeof VolunteerRoute
+      preLoaderRoute: typeof AuthenticatedVolunteerPickupsPickupIdRouteImport
+      parentRoute: typeof AuthenticatedVolunteerRoute
     }
   }
 }
 
-interface AdminRouteChildren {
-  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
-  AdminDonationsRoute: typeof AdminDonationsRoute
-  AdminNgosRoute: typeof AdminNgosRoute
-  AdminReportsRoute: typeof AdminReportsRoute
-  AdminUsersRoute: typeof AdminUsersRoute
-  AdminVolunteersRoute: typeof AdminVolunteersRoute
-  AdminIndexRoute: typeof AdminIndexRoute
+interface AuthenticatedAdminRouteChildren {
+  AuthenticatedAdminAnalyticsRoute: typeof AuthenticatedAdminAnalyticsRoute
+  AuthenticatedAdminDonationsRoute: typeof AuthenticatedAdminDonationsRoute
+  AuthenticatedAdminNgosRoute: typeof AuthenticatedAdminNgosRoute
+  AuthenticatedAdminReportsRoute: typeof AuthenticatedAdminReportsRoute
+  AuthenticatedAdminUsersRoute: typeof AuthenticatedAdminUsersRoute
+  AuthenticatedAdminVolunteersRoute: typeof AuthenticatedAdminVolunteersRoute
+  AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
 }
 
-const AdminRouteChildren: AdminRouteChildren = {
-  AdminAnalyticsRoute: AdminAnalyticsRoute,
-  AdminDonationsRoute: AdminDonationsRoute,
-  AdminNgosRoute: AdminNgosRoute,
-  AdminReportsRoute: AdminReportsRoute,
-  AdminUsersRoute: AdminUsersRoute,
-  AdminVolunteersRoute: AdminVolunteersRoute,
-  AdminIndexRoute: AdminIndexRoute,
+const AuthenticatedAdminRouteChildren: AuthenticatedAdminRouteChildren = {
+  AuthenticatedAdminAnalyticsRoute: AuthenticatedAdminAnalyticsRoute,
+  AuthenticatedAdminDonationsRoute: AuthenticatedAdminDonationsRoute,
+  AuthenticatedAdminNgosRoute: AuthenticatedAdminNgosRoute,
+  AuthenticatedAdminReportsRoute: AuthenticatedAdminReportsRoute,
+  AuthenticatedAdminUsersRoute: AuthenticatedAdminUsersRoute,
+  AuthenticatedAdminVolunteersRoute: AuthenticatedAdminVolunteersRoute,
+  AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
 }
 
-const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+const AuthenticatedAdminRouteWithChildren =
+  AuthenticatedAdminRoute._addFileChildren(AuthenticatedAdminRouteChildren)
 
-interface DonorRouteChildren {
-  DonorHistoryRoute: typeof DonorHistoryRoute
-  DonorProfileRoute: typeof DonorProfileRoute
-  DonorIndexRoute: typeof DonorIndexRoute
-  DonorDonationsDonationIdRoute: typeof DonorDonationsDonationIdRoute
-  DonorDonationsNewRoute: typeof DonorDonationsNewRoute
-  DonorDonationsIndexRoute: typeof DonorDonationsIndexRoute
+interface AuthenticatedDonorRouteChildren {
+  AuthenticatedDonorHistoryRoute: typeof AuthenticatedDonorHistoryRoute
+  AuthenticatedDonorProfileRoute: typeof AuthenticatedDonorProfileRoute
+  AuthenticatedDonorIndexRoute: typeof AuthenticatedDonorIndexRoute
+  AuthenticatedDonorDonationsDonationIdRoute: typeof AuthenticatedDonorDonationsDonationIdRoute
+  AuthenticatedDonorDonationsNewRoute: typeof AuthenticatedDonorDonationsNewRoute
+  AuthenticatedDonorDonationsIndexRoute: typeof AuthenticatedDonorDonationsIndexRoute
 }
 
-const DonorRouteChildren: DonorRouteChildren = {
-  DonorHistoryRoute: DonorHistoryRoute,
-  DonorProfileRoute: DonorProfileRoute,
-  DonorIndexRoute: DonorIndexRoute,
-  DonorDonationsDonationIdRoute: DonorDonationsDonationIdRoute,
-  DonorDonationsNewRoute: DonorDonationsNewRoute,
-  DonorDonationsIndexRoute: DonorDonationsIndexRoute,
+const AuthenticatedDonorRouteChildren: AuthenticatedDonorRouteChildren = {
+  AuthenticatedDonorHistoryRoute: AuthenticatedDonorHistoryRoute,
+  AuthenticatedDonorProfileRoute: AuthenticatedDonorProfileRoute,
+  AuthenticatedDonorIndexRoute: AuthenticatedDonorIndexRoute,
+  AuthenticatedDonorDonationsDonationIdRoute:
+    AuthenticatedDonorDonationsDonationIdRoute,
+  AuthenticatedDonorDonationsNewRoute: AuthenticatedDonorDonationsNewRoute,
+  AuthenticatedDonorDonationsIndexRoute: AuthenticatedDonorDonationsIndexRoute,
 }
 
-const DonorRouteWithChildren = DonorRoute._addFileChildren(DonorRouteChildren)
+const AuthenticatedDonorRouteWithChildren =
+  AuthenticatedDonorRoute._addFileChildren(AuthenticatedDonorRouteChildren)
 
-interface NgoRouteChildren {
-  NgoAcceptedRoute: typeof NgoAcceptedRoute
-  NgoHistoryRoute: typeof NgoHistoryRoute
-  NgoNearbyRoute: typeof NgoNearbyRoute
-  NgoProfileRoute: typeof NgoProfileRoute
-  NgoRequestsRoute: typeof NgoRequestsRoute
-  NgoIndexRoute: typeof NgoIndexRoute
+interface AuthenticatedNgoRouteChildren {
+  AuthenticatedNgoAcceptedRoute: typeof AuthenticatedNgoAcceptedRoute
+  AuthenticatedNgoHistoryRoute: typeof AuthenticatedNgoHistoryRoute
+  AuthenticatedNgoNearbyRoute: typeof AuthenticatedNgoNearbyRoute
+  AuthenticatedNgoProfileRoute: typeof AuthenticatedNgoProfileRoute
+  AuthenticatedNgoRequestsRoute: typeof AuthenticatedNgoRequestsRoute
+  AuthenticatedNgoIndexRoute: typeof AuthenticatedNgoIndexRoute
 }
 
-const NgoRouteChildren: NgoRouteChildren = {
-  NgoAcceptedRoute: NgoAcceptedRoute,
-  NgoHistoryRoute: NgoHistoryRoute,
-  NgoNearbyRoute: NgoNearbyRoute,
-  NgoProfileRoute: NgoProfileRoute,
-  NgoRequestsRoute: NgoRequestsRoute,
-  NgoIndexRoute: NgoIndexRoute,
+const AuthenticatedNgoRouteChildren: AuthenticatedNgoRouteChildren = {
+  AuthenticatedNgoAcceptedRoute: AuthenticatedNgoAcceptedRoute,
+  AuthenticatedNgoHistoryRoute: AuthenticatedNgoHistoryRoute,
+  AuthenticatedNgoNearbyRoute: AuthenticatedNgoNearbyRoute,
+  AuthenticatedNgoProfileRoute: AuthenticatedNgoProfileRoute,
+  AuthenticatedNgoRequestsRoute: AuthenticatedNgoRequestsRoute,
+  AuthenticatedNgoIndexRoute: AuthenticatedNgoIndexRoute,
 }
 
-const NgoRouteWithChildren = NgoRoute._addFileChildren(NgoRouteChildren)
+const AuthenticatedNgoRouteWithChildren =
+  AuthenticatedNgoRoute._addFileChildren(AuthenticatedNgoRouteChildren)
 
-interface VolunteerRouteChildren {
-  VolunteerHistoryRoute: typeof VolunteerHistoryRoute
-  VolunteerMyPickupsRoute: typeof VolunteerMyPickupsRoute
-  VolunteerProfileRoute: typeof VolunteerProfileRoute
-  VolunteerIndexRoute: typeof VolunteerIndexRoute
-  VolunteerPickupsPickupIdRoute: typeof VolunteerPickupsPickupIdRoute
-  VolunteerPickupsIndexRoute: typeof VolunteerPickupsIndexRoute
+interface AuthenticatedVolunteerRouteChildren {
+  AuthenticatedVolunteerHistoryRoute: typeof AuthenticatedVolunteerHistoryRoute
+  AuthenticatedVolunteerMyPickupsRoute: typeof AuthenticatedVolunteerMyPickupsRoute
+  AuthenticatedVolunteerProfileRoute: typeof AuthenticatedVolunteerProfileRoute
+  AuthenticatedVolunteerIndexRoute: typeof AuthenticatedVolunteerIndexRoute
+  AuthenticatedVolunteerPickupsPickupIdRoute: typeof AuthenticatedVolunteerPickupsPickupIdRoute
+  AuthenticatedVolunteerPickupsIndexRoute: typeof AuthenticatedVolunteerPickupsIndexRoute
 }
 
-const VolunteerRouteChildren: VolunteerRouteChildren = {
-  VolunteerHistoryRoute: VolunteerHistoryRoute,
-  VolunteerMyPickupsRoute: VolunteerMyPickupsRoute,
-  VolunteerProfileRoute: VolunteerProfileRoute,
-  VolunteerIndexRoute: VolunteerIndexRoute,
-  VolunteerPickupsPickupIdRoute: VolunteerPickupsPickupIdRoute,
-  VolunteerPickupsIndexRoute: VolunteerPickupsIndexRoute,
+const AuthenticatedVolunteerRouteChildren: AuthenticatedVolunteerRouteChildren =
+  {
+    AuthenticatedVolunteerHistoryRoute: AuthenticatedVolunteerHistoryRoute,
+    AuthenticatedVolunteerMyPickupsRoute: AuthenticatedVolunteerMyPickupsRoute,
+    AuthenticatedVolunteerProfileRoute: AuthenticatedVolunteerProfileRoute,
+    AuthenticatedVolunteerIndexRoute: AuthenticatedVolunteerIndexRoute,
+    AuthenticatedVolunteerPickupsPickupIdRoute:
+      AuthenticatedVolunteerPickupsPickupIdRoute,
+    AuthenticatedVolunteerPickupsIndexRoute:
+      AuthenticatedVolunteerPickupsIndexRoute,
+  }
+
+const AuthenticatedVolunteerRouteWithChildren =
+  AuthenticatedVolunteerRoute._addFileChildren(
+    AuthenticatedVolunteerRouteChildren,
+  )
+
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRouteWithChildren
+  AuthenticatedDonorRoute: typeof AuthenticatedDonorRouteWithChildren
+  AuthenticatedNgoRoute: typeof AuthenticatedNgoRouteWithChildren
+  AuthenticatedVolunteerRoute: typeof AuthenticatedVolunteerRouteWithChildren
 }
 
-const VolunteerRouteWithChildren = VolunteerRoute._addFileChildren(
-  VolunteerRouteChildren,
-)
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRouteWithChildren,
+  AuthenticatedDonorRoute: AuthenticatedDonorRouteWithChildren,
+  AuthenticatedNgoRoute: AuthenticatedNgoRouteWithChildren,
+  AuthenticatedVolunteerRoute: AuthenticatedVolunteerRouteWithChildren,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
-  AdminRoute: AdminRouteWithChildren,
   ContactRoute: ContactRoute,
-  DonorRoute: DonorRouteWithChildren,
   HowItWorksRoute: HowItWorksRoute,
   LoginRoute: LoginRoute,
-  NgoRoute: NgoRouteWithChildren,
   RegisterRoute: RegisterRoute,
-  VolunteerRoute: VolunteerRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

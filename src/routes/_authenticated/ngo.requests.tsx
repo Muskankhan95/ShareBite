@@ -3,7 +3,7 @@ import { Inbox } from "lucide-react";
 import { ListScreen } from "@/components/dashboard/list-screen";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export const Route = createFileRoute("/ngo/requests")({
+export const Route = createFileRoute("/_authenticated/_authenticated/ngo/requests")({
   component: FoodRequests,
 });
 

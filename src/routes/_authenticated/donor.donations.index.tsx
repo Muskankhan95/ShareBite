@@ -4,7 +4,7 @@ import { ListScreen } from "@/components/dashboard/list-screen";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export const Route = createFileRoute("/donor/donations/")({
+export const Route = createFileRoute("/_authenticated/_authenticated/donor/donations/")({
   component: MyDonations,
 });
 

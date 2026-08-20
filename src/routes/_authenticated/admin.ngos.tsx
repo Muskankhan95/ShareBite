@@ -3,7 +3,7 @@ import { Building2 } from "lucide-react";
 import { ListScreen } from "@/components/dashboard/list-screen";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export const Route = createFileRoute("/admin/ngos")({
+export const Route = createFileRoute("/_authenticated/_authenticated/admin/ngos")({
   component: AdminNgos,
 });
 
