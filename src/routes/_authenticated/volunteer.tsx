@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { DashboardShell } from "@/components/layout/dashboard-shell";
+import { RoleGate } from "@/components/layout/role-gate";
 
 export const Route = createFileRoute("/_authenticated/volunteer")({
   head: () => ({
@@ -13,5 +13,5 @@ export const Route = createFileRoute("/_authenticated/volunteer")({
       { property: "og:description", content: "Pick up and deliver rescued food." },
     ],
   }),
-  component: () => <DashboardShell role="volunteer" />,
+  component: () => <RoleGate role="volunteer" />,
 });
