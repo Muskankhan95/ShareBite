@@ -1,12 +1,14 @@
 import { useState, type ReactNode } from "react";
-import { Link, Outlet } from "@tanstack/react-router";
+import { Link, Outlet, useNavigate } from "@tanstack/react-router";
 import { LogOut, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Logo } from "@/components/common/logo";
 import { roleLabels, roleNav, type NavItem } from "@/config/navigation";
+import { useAuth } from "@/lib/auth/auth-context";
 import type { UserRole } from "@/types";
 
 function SidebarNav({ items, onNavigate }: { items: NavItem[]; onNavigate?: (() => void) | undefined }) {
@@ -32,6 +34,24 @@ function SidebarNav({ items, onNavigate }: { items: NavItem[]; onNavigate?: (() 
 }
 
 function SidebarBody({ role, onNavigate }: { role: UserRole; onNavigate?: (() => void) | undefined }) {
+  const { account, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    if (onNavigate) onNavigate();
+    await signOut();
+    await navigate({ to: "/login" });
+  };
+
+  const initials = account?.fullName
+    ? account.fullName
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+        .slice(0, 2)
+        .toUpperCase()
+    : "SB";
+
   return (
     <div className="flex h-full flex-col gap-5">
       <div className="space-y-3">
@@ -45,15 +65,30 @@ function SidebarBody({ role, onNavigate }: { role: UserRole; onNavigate?: (() =>
         <SidebarNav items={roleNav[role]} onNavigate={onNavigate} />
       </div>
       <Separator />
-      <div className="space-y-2">
-        <p className="text-xs text-muted-foreground">
-          You are browsing the UI preview. Accounts and sign-in are not connected yet.
-        </p>
-        <Button asChild variant="outline" size="sm" className="w-full">
-          <Link to="/">
-            <LogOut className="size-4" />
-            Exit workspace
-          </Link>
+      <div className="space-y-3">
+        {account ? (
+          <div className="flex items-center gap-3 rounded-xl border border-sidebar-border bg-sidebar-accent/50 p-2.5">
+            <Avatar className="size-8 ring-1 ring-primary/20">
+              <AvatarFallback className="bg-primary/10 text-xs font-bold text-primary">
+                {initials}
+              </AvatarFallback>
+            </Avatar>
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-xs font-semibold text-sidebar-foreground">
+                {account.fullName || "User"}
+              </p>
+              <p className="truncate text-[11px] text-muted-foreground">{account.email}</p>
+            </div>
+          </div>
+        ) : null}
+        <Button
+          variant="outline"
+          size="sm"
+          className="w-full text-xs text-muted-foreground hover:text-destructive hover:border-destructive/30"
+          onClick={handleSignOut}
+        >
+          <LogOut className="size-3.5" />
+          Sign out
         </Button>
       </div>
     </div>

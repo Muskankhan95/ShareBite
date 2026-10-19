@@ -4,12 +4,12 @@ import { RoleGate } from "@/components/layout/role-gate";
 export const Route = createFileRoute("/_authenticated/volunteer")({
   head: () => ({
     meta: [
-      { title: "Volunteer Workspace — FoodRescue" },
+      { title: "Volunteer Workspace — ShareBite" },
       {
         name: "description",
         content: "Accept nearby pickups, deliver food to NGOs and track your delivery history.",
       },
-      { property: "og:title", content: "Volunteer Workspace — FoodRescue" },
+      { property: "og:title", content: "Volunteer Workspace — ShareBite" },
       { property: "og:description", content: "Pick up and deliver rescued food." },
     ],
   }),

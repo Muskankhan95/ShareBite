@@ -21,13 +21,13 @@ export const Route = createFileRoute("/login")({
   validateSearch: searchSchema,
   head: () => ({
     meta: [
-      { title: "Log in to FoodRescue" },
+      { title: "Log in to ShareBite" },
       {
         name: "description",
-        content: "Sign in to your FoodRescue donor, NGO, volunteer or admin workspace.",
+        content: "Sign in to your ShareBite donor, NGO, volunteer or admin workspace.",
       },
-      { property: "og:title", content: "Log in to FoodRescue" },
-      { property: "og:description", content: "Access your FoodRescue workspace." },
+      { property: "og:title", content: "Log in to ShareBite" },
+      { property: "og:description", content: "Access your ShareBite workspace." },
     ],
   }),
   component: LoginPage,
@@ -143,7 +143,7 @@ function LoginPage() {
             </form>
 
             <p className="text-sm text-muted-foreground">
-              New to FoodRescue?{" "}
+              New to ShareBite?{" "}
               <Link to="/register" className="font-semibold text-primary hover:underline">
                 Create an account
               </Link>

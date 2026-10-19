@@ -1,9 +1,13 @@
-import { notImplemented } from "./api-client";
-import type { Donation } from "@/types";
+import {
+  cancelDonation,
+  createDonation,
+  getDonation,
+  listMyDonations,
+} from "@/lib/data.functions";
 
 export const donationsService = {
-  list: () => notImplemented<Donation[]>("Listing donations"),
-  getById: (_id: string) => notImplemented<Donation>("Donation details"),
-  create: (_input: Partial<Donation>) => notImplemented<Donation>("Creating a donation"),
-  cancel: (_id: string) => notImplemented<void>("Cancelling a donation"),
+  list: () => listMyDonations(),
+  getById: (id: string) => getDonation({ data: { id } }),
+  create: (input: Parameters<typeof createDonation>[0]["data"]) => createDonation({ data: input }),
+  cancel: (id: string) => cancelDonation({ data: { id } }),
 };

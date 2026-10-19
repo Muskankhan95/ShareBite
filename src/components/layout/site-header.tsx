@@ -1,13 +1,22 @@
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
-import { Menu } from "lucide-react";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { Menu, LayoutDashboard, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { publicNav } from "@/config/navigation";
 import { Logo } from "@/components/common/logo";
+import { useAuth, roleHome } from "@/lib/auth/auth-context";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const { isAuthenticated, account, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    setOpen(false);
+    await signOut();
+    await navigate({ to: "/login" });
+  };
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur">
@@ -29,12 +38,28 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <Button asChild variant="ghost" size="sm">
-            <Link to="/login">Log in</Link>
-          </Button>
-          <Button asChild variant="hero" size="sm">
-            <Link to="/register">Get started</Link>
-          </Button>
+          {isAuthenticated && account ? (
+            <>
+              <Button asChild variant="hero" size="sm">
+                <Link to={roleHome[account.role] as "/"}>
+                  <LayoutDashboard className="size-4" />
+                  Dashboard
+                </Link>
+              </Button>
+              <Button variant="ghost" size="sm" onClick={handleSignOut} title="Sign out">
+                <LogOut className="size-4" />
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button asChild variant="ghost" size="sm">
+                <Link to="/login">Log in</Link>
+              </Button>
+              <Button asChild variant="hero" size="sm">
+                <Link to="/register">Get started</Link>
+              </Button>
+            </>
+          )}
         </div>
 
         <Sheet open={open} onOpenChange={setOpen}>
@@ -59,12 +84,29 @@ export function SiteHeader() {
                 </Link>
               ))}
               <div className="mt-4 grid gap-2">
-                <Button asChild variant="outline" onClick={() => setOpen(false)}>
-                  <Link to="/login">Log in</Link>
-                </Button>
-                <Button asChild variant="hero" onClick={() => setOpen(false)}>
-                  <Link to="/register">Get started</Link>
-                </Button>
+                {isAuthenticated && account ? (
+                  <>
+                    <Button asChild variant="hero" onClick={() => setOpen(false)}>
+                      <Link to={roleHome[account.role] as "/"}>
+                        <LayoutDashboard className="size-4" />
+                        Go to Dashboard
+                      </Link>
+                    </Button>
+                    <Button variant="outline" onClick={handleSignOut}>
+                      <LogOut className="size-4" />
+                      Sign out
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Button asChild variant="outline" onClick={() => setOpen(false)}>
+                      <Link to="/login">Log in</Link>
+                    </Button>
+                    <Button asChild variant="hero" onClick={() => setOpen(false)}>
+                      <Link to="/register">Get started</Link>
+                    </Button>
+                  </>
+                )}
               </div>
             </div>
           </SheetContent>

@@ -7,13 +7,13 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
     meta: [
-      { title: "How FoodRescue Works — From surplus to served meal" },
+      { title: "How ShareBite Works — From surplus to served meal" },
       {
         name: "description",
         content:
-          "See how donors list surplus food, verified NGOs request it and volunteers deliver it with FoodRescue.",
+          "See how donors list surplus food, verified NGOs request it and volunteers deliver it with ShareBite.",
       },
-      { property: "og:title", content: "How FoodRescue Works" },
+      { property: "og:title", content: "How ShareBite Works" },
       {
         property: "og:description",
         content: "The donor, NGO and volunteer journey step by step.",
@@ -89,7 +89,7 @@ function HowItWorksPage() {
                   <Icon className="size-5" />
                 </span>
                 <CardTitle className="text-lg">{role} journey</CardTitle>
-                <CardDescription>What this role does inside FoodRescue.</CardDescription>
+                <CardDescription>What this role does inside ShareBite.</CardDescription>
               </CardHeader>
               <CardContent>
                 <ol className="space-y-3 text-sm text-muted-foreground">

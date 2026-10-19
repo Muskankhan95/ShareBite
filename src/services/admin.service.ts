@@ -1,8 +1,5 @@
-import { notImplemented } from "./api-client";
-import type { ImpactStats, NgoProfile, UserProfile } from "@/types";
+import { getImpactStatistics } from "@/lib/impact.functions";
 
 export const adminService = {
-  listUsers: () => notImplemented<UserProfile[]>("User management"),
-  listNgos: () => notImplemented<NgoProfile[]>("NGO verification queue"),
-  platformStats: () => notImplemented<ImpactStats>("Platform statistics"),
+  platformStats: () => getImpactStatistics(),
 };

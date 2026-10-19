@@ -1,9 +1,9 @@
 export const site = {
-  name: "FoodRescue",
+  name: "ShareBite",
   tagline: "Save Food. Share Hope.",
   description:
-    "FoodRescue connects surplus food with verified organizations and volunteers before it goes to waste.",
-  email: "hello@foodrescue.org",
+    "ShareBite connects surplus food with verified organizations and volunteers before it goes to waste.",
+  email: "hello@sharebite.org",
   phone: "+91 90000 00000",
   address: "12 Community Lane, Bengaluru, India",
 } as const;

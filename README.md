@@ -1,4 +1,4 @@
-# 🍃 FoodRescue
+# 🍃 ShareBite
 
 ### Save Food. Share Hope. Create Impact.
 
@@ -15,22 +15,22 @@
 
 ---
 
-## 🌱 What is FoodRescue?
+## 🌱 What is ShareBite?
 
 Every day, perfectly edible food is wasted while communities struggle to access nutritious meals.
 
-**FoodRescue** is designed to bridge that gap.
+**ShareBite** is designed to bridge that gap.
 
 It is a social-impact platform that connects:
 
 🍽️ **Donors** with surplus food  
 🏢 **NGOs** that can distribute it  
 🛵 **Volunteers** who transport it  
-🛡️ **Admins** who coordinate and monitor the ecosystem  
+🛡️ **Admins** who coordinate and monitor the ecosystem
 
 > **Food shouldn't become waste when it can become someone's meal.**
 
-FoodRescue aims to make food redistribution **faster, organized, transparent, and community-driven.**
+ShareBite aims to make food redistribution **faster, organized, transparent, and community-driven.**
 
 ---
 
@@ -41,7 +41,7 @@ FoodRescue aims to make food redistribution **faster, organized, transparent, an
              │
              ▼
       ┌──────────────┐
-      │   FOODRESCUE │
+      │   SHAREBITE │
       └──────┬───────┘
              │
        ┌─────┼─────┐
@@ -52,3 +52,4 @@ FoodRescue aims to make food redistribution **faster, organized, transparent, an
                ▼
           FOOD REACHES
           THOSE IN NEED
+```

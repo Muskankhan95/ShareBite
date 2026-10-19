@@ -79,29 +79,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "FoodRescue — Save Food. Share Hope." },
+      { title: "ShareBite — Save Food. Share Hope." },
       {
         name: "description",
         content:
-          "FoodRescue connects surplus food with verified NGOs and volunteers before it goes to waste.",
+          "ShareBite connects surplus food with verified NGOs and volunteers before it goes to waste.",
       },
-      { name: "author", content: "FoodRescue" },
-      { property: "og:title", content: "FoodRescue — Save Food. Share Hope." },
+      { name: "author", content: "ShareBite" },
+      { property: "og:title", content: "ShareBite — Save Food. Share Hope." },
       {
         property: "og:description",
         content:
-          "FoodRescue connects surplus food with verified NGOs and volunteers before it goes to waste.",
+          "ShareBite connects surplus food with verified NGOs and volunteers before it goes to waste.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

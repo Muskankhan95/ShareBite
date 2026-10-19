@@ -1,9 +1,14 @@
-import { notImplemented } from "./api-client";
-import type { Pickup } from "@/types";
+import {
+  claimPickup,
+  listAvailablePickups,
+  listMyPickups,
+  updatePickupStatus,
+} from "@/lib/data.functions";
 
 export const pickupsService = {
-  listAvailable: () => notImplemented<Pickup[]>("Available pickups"),
-  listMine: () => notImplemented<Pickup[]>("My pickups"),
-  accept: (_id: string) => notImplemented<void>("Accepting a pickup"),
-  markDelivered: (_id: string) => notImplemented<void>("Marking a delivery complete"),
+  listAvailable: () => listAvailablePickups(),
+  listMine: () => listMyPickups(),
+  accept: (id: string) => claimPickup({ data: { id } }),
+  markPickedUp: (id: string) => updatePickupStatus({ data: { id, status: "picked_up" } }),
+  markDelivered: (id: string) => updatePickupStatus({ data: { id, status: "delivered" } }),
 };

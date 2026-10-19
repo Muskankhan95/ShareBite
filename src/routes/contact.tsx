@@ -12,16 +12,16 @@ import { site } from "@/config/site";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact FoodRescue — Partnerships and support" },
+      { title: "Contact ShareBite — Partnerships and support" },
       {
         name: "description",
         content:
-          "Reach the FoodRescue team about donations, NGO verification, volunteering or partnerships.",
+          "Reach the ShareBite team about donations, NGO verification, volunteering or partnerships.",
       },
-      { property: "og:title", content: "Contact FoodRescue" },
+      { property: "og:title", content: "Contact ShareBite" },
       {
         property: "og:description",
-        content: "Get in touch with the FoodRescue team.",
+        content: "Get in touch with the ShareBite team.",
       },
     ],
   }),
@@ -34,7 +34,7 @@ function ContactPage() {
       <PublicPage>
         <header className="max-w-2xl space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Contact</p>
-          <h1 className="text-4xl font-semibold sm:text-5xl">Talk to the FoodRescue team</h1>
+          <h1 className="text-4xl font-semibold sm:text-5xl">Talk to the ShareBite team</h1>
           <p className="text-lg text-muted-foreground">
             Questions about donating, NGO verification or volunteering? Send us a note and we will
             get back to you.
@@ -58,7 +58,12 @@ function ContactPage() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="you@example.com" autoComplete="email" />
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="you@example.com"
+                      autoComplete="email"
+                    />
                   </div>
                 </div>
                 <div className="space-y-2">

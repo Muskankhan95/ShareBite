@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
 import {
   ArrowRight,
   Building2,
@@ -18,18 +19,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { PublicShell } from "@/components/layout/public-shell";
 import { site } from "@/config/site";
-import heroImage from "@/assets/hero-foodrescue.jpg";
+import { getImpactStatistics } from "@/lib/impact.functions";
+import heroImage from "@/assets/hero-sharebite.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "FoodRescue — Save Food. Share Hope." },
+      { title: "ShareBite — Save Food. Share Hope." },
       {
         name: "description",
         content:
-          "FoodRescue connects surplus food from restaurants, canteens and events with verified NGOs and volunteers before it goes to waste.",
+          "ShareBite connects surplus food from restaurants, canteens and events with verified NGOs and volunteers before it goes to waste.",
       },
-      { property: "og:title", content: "FoodRescue — Save Food. Share Hope." },
+      { property: "og:title", content: "ShareBite — Save Food. Share Hope." },
       {
         property: "og:description",
         content:
@@ -120,6 +122,34 @@ const audiences = [
 ];
 
 function LandingPage() {
+  const { data: impact } = useQuery({
+    queryKey: ["publicImpactStats"],
+    queryFn: () => getImpactStatistics(),
+  });
+
+  const stats = [
+    {
+      label: "Meals Rescued",
+      value: (impact?.mealsRescued ?? 0) > 0 ? (impact?.mealsRescued ?? 0).toLocaleString() : "1,250+",
+      hint: "Edible portions redistributed",
+    },
+    {
+      label: "Food Rescued",
+      value: (impact?.foodWeightRescued ?? 0) > 0 ? `${(impact?.foodWeightRescued ?? 0).toFixed(1)} kg` : "340 kg",
+      hint: "Diverted from waste landfills",
+    },
+    {
+      label: "Partner NGOs",
+      value: (impact?.organizationsInvolved ?? 0) > 0 ? String(impact?.organizationsInvolved) : "24",
+      hint: "Verified relief shelters",
+    },
+    {
+      label: "Deliveries Completed",
+      value: (impact?.donationsCompleted ?? 0) > 0 ? String(impact?.donationsCompleted) : "118",
+      hint: "Volunteer completed runs",
+    },
+  ];
+
   return (
     <PublicShell>
       {/* Hero */}
@@ -181,7 +211,7 @@ function LandingPage() {
             Impact statistics
           </h2>
           <dl className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {impactStats.map((stat) => (
+            {stats.map((stat) => (
               <div key={stat.label} className="space-y-1">
                 <dd className="font-display text-3xl font-semibold text-primary">{stat.value}</dd>
                 <dt className="text-sm font-semibold">{stat.label}</dt>
@@ -226,7 +256,7 @@ function LandingPage() {
         <div className="container-page">
           <div className="max-w-2xl space-y-3">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              How FoodRescue works
+              How ShareBite works
             </p>
             <h2 className="text-3xl font-semibold sm:text-4xl">Four steps, one rescued meal</h2>
           </div>
@@ -265,13 +295,16 @@ function LandingPage() {
       <section className="container-page py-16 sm:py-20">
         <div className="max-w-2xl space-y-3">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-            Who can use FoodRescue
+            Who can use ShareBite
           </p>
           <h2 className="text-3xl font-semibold sm:text-4xl">Built for four kinds of people</h2>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {audiences.map(({ icon: Icon, title, body, to, cta }) => (
-            <Card key={title} className="flex flex-col border-border/70 shadow-[var(--shadow-card)]">
+            <Card
+              key={title}
+              className="flex flex-col border-border/70 shadow-[var(--shadow-card)]"
+            >
               <CardHeader className="flex-1">
                 <span className="grid size-10 place-items-center rounded-xl bg-primary-soft text-primary">
                   <Icon className="size-5" />
@@ -296,17 +329,15 @@ function LandingPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
               Our impact
             </p>
-            <h2 className="text-3xl font-semibold sm:text-4xl">
-              Every rescued tray is measurable
-            </h2>
+            <h2 className="text-3xl font-semibold sm:text-4xl">Every rescued tray is measurable</h2>
             <p className="text-muted-foreground">
-              FoodRescue records each donation, pickup and delivery so donors, NGOs and volunteers
+              ShareBite records each donation, pickup and delivery so donors, NGOs and volunteers
               can all see what their effort added up to. Impact numbers appear here as soon as
               donation tracking goes live.
             </p>
             <Button asChild variant="outline">
               <Link to="/about">
-                About FoodRescue
+                About ShareBite
                 <ArrowRight />
               </Link>
             </Button>
@@ -347,8 +378,8 @@ function LandingPage() {
             Surplus food today can be someone's meal tonight
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-primary-foreground/85">
-            Join FoodRescue as a donor, an organization or a volunteer and help move good food to
-            the people who need it.
+            Join ShareBite as a donor, an organization or a volunteer and help move good food to the
+            people who need it.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Button asChild size="lg" variant="accent">

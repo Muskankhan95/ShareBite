@@ -1,17 +1,11 @@
 /**
- * Domain models / types for FoodRescue.
+ * Domain models / types for ShareBite.
  * These describe the shape of data the app will use once the backend exists.
  */
 
 export type UserRole = "donor" | "ngo" | "volunteer" | "admin";
 
-export type DonorType =
-  | "restaurant"
-  | "hotel"
-  | "canteen"
-  | "hostel"
-  | "event"
-  | "individual";
+export type DonorType = "restaurant" | "hotel" | "canteen" | "hostel" | "event" | "individual";
 
 export type DonationStatus =
   | "draft"

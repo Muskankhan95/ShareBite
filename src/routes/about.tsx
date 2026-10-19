@@ -7,16 +7,16 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About FoodRescue — Our mission against food waste" },
+      { title: "About ShareBite — Our mission against food waste" },
       {
         name: "description",
         content:
-          "FoodRescue is a community platform that moves surplus edible food from donors to verified NGOs through volunteers.",
+          "ShareBite is a community platform that moves surplus edible food from donors to verified NGOs through volunteers.",
       },
-      { property: "og:title", content: "About FoodRescue" },
+      { property: "og:title", content: "About ShareBite" },
       {
         property: "og:description",
-        content: "Why FoodRescue exists and how the network is organized.",
+        content: "Why ShareBite exists and how the network is organized.",
       },
     ],
   }),
@@ -52,16 +52,16 @@ function AboutPage() {
       <PublicPage>
         <header className="max-w-3xl space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-            About FoodRescue
+            About ShareBite
           </p>
           <h1 className="text-4xl font-semibold sm:text-5xl">
             A coordination layer for surplus food
           </h1>
           <p className="text-lg leading-relaxed text-muted-foreground">
-            FoodRescue exists because edible food and hunger often sit a few kilometres apart with
-            no reliable way to connect them. The platform brings donors, verified NGOs and
-            volunteers into one workflow so surplus food is collected and distributed while it is
-            still safe to eat.
+            ShareBite exists because edible food and hunger often sit a few kilometres apart with no
+            reliable way to connect them. The platform brings donors, verified NGOs and volunteers
+            into one workflow so surplus food is collected and distributed while it is still safe to
+            eat.
           </p>
         </header>
 
