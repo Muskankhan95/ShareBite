@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  foodrescue-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: foodrescue_production
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_APP_URL=http://localhost:3000
+      - BACKEND_URL=http://localhost:3000
+      - JWT_SECRET=${JWT_SECRET:-foodrescue_prod_secure_secret_key_change_me_32_chars}
+      - JWT_EXPIRES_IN=7d
+      - DATABASE_PATH=/app/data/foodrescue.db
+      - NEXT_PUBLIC_MAP_PROVIDER=osm
+      - LOG_LEVEL=info
+      - RATE_LIMIT_MAX_REQUESTS=100
+      - RATE_LIMIT_WINDOW_MS=60000
+    volumes:
+      # Persistent SQLite storage
+      - foodrescue_data:/app/data
+      # Persistent audit logs
+      - foodrescue_logs:/app/logs
+      # Persistent database backups
+      - foodrescue_backups:/app/backups
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000/api/impact"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+volumes:
+  foodrescue_data:
+    driver: local
+  foodrescue_logs:
+    driver: local
+  foodrescue_backups:
+    driver: local

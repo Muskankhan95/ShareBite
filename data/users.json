@@ -1,0 +1,120 @@
+[
+  {
+    "id": "usr_donor_1",
+    "name": "Chef Marco Rivera",
+    "email": "donor@foodrescue.org",
+    "role": "donor",
+    "phone": "+1 (555) 234-8901",
+    "passwordHash": "$2b$10$WQ3Kn1YBIK4QbEk7gfYFleTSgFJwR/Ubn5Cb3SI3eAGwAD.E4VQGq",
+    "organizationName": "Green Leaf Bistro",
+    "donorCategory": "Restaurant",
+    "address": {
+      "street": "420 Market Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipCode": "94105"
+    },
+    "createdAt": "2024-01-15T09:00:00Z"
+  },
+  {
+    "id": "usr_ngo_1",
+    "name": "Elena Rostova",
+    "email": "ngo@foodrescue.org",
+    "role": "ngo",
+    "phone": "+1 (555) 876-5432",
+    "passwordHash": "$2b$10$WQ3Kn1YBIK4QbEk7gfYFleTSgFJwR/Ubn5Cb3SI3eAGwAD.E4VQGq",
+    "organizationName": "Hope Kitchen & Shelter",
+    "ngoRegistrationNumber": "NGO-501C3-88204",
+    "ngoVerificationStatus": "verified",
+    "address": {
+      "street": "782 Mission Blvd",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipCode": "94103"
+    },
+    "createdAt": "2023-11-20T10:30:00Z"
+  },
+  {
+    "id": "usr_vol_1",
+    "name": "Marcus Vance",
+    "email": "volunteer@foodrescue.org",
+    "role": "volunteer",
+    "phone": "+1 (555) 456-7890",
+    "passwordHash": "$2b$10$WQ3Kn1YBIK4QbEk7gfYFleTSgFJwR/Ubn5Cb3SI3eAGwAD.E4VQGq",
+    "volunteerVehicleType": "Bike",
+    "address": {
+      "street": "154 Valencia St",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipCode": "94103"
+    },
+    "createdAt": "2024-02-01T14:00:00Z"
+  },
+  {
+    "id": "usr_admin_1",
+    "name": "Sarah Lee",
+    "email": "admin@foodrescue.org",
+    "role": "admin",
+    "phone": "+1 (555) 999-0001",
+    "passwordHash": "$2b$10$WQ3Kn1YBIK4QbEk7gfYFleTSgFJwR/Ubn5Cb3SI3eAGwAD.E4VQGq",
+    "organizationName": "FoodRescue Headquarters",
+    "address": {
+      "street": "100 Civic Center Plaza",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipCode": "94102"
+    },
+    "createdAt": "2023-01-01T08:00:00Z"
+  },
+  {
+    "id": "usr_donor_1792947118626",
+    "name": "Chef Anthony",
+    "email": "donor_1792947118420@test.org",
+    "phone": "+1 555-888-0001",
+    "passwordHash": "$2b$10$1pC3rLupZgrRU7ff3QwYOe/fRIQunOpv8EAW0G.r8JN4t4CWcXNNy",
+    "role": "donor",
+    "address": {
+      "street": "100 Broadway, San Francisco, CA",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipCode": "94103"
+    },
+    "organizationName": "Anthony's Woodfire Pizza",
+    "donorCategory": "Restaurant",
+    "createdAt": "2026-10-25T16:51:58.626Z"
+  },
+  {
+    "id": "usr_ngo_1792947118744",
+    "name": "Sister Beatrice",
+    "email": "ngo_1792947118420@test.org",
+    "phone": "+1 555-888-0002",
+    "passwordHash": "$2b$10$DxtSem4HavgAcnYnq.bRZ.fJvdrCBNDPwTwDu3dH6crTLxdaEA/fi",
+    "role": "ngo",
+    "address": {
+      "street": "245 Golden Gate Ave, San Francisco, CA",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipCode": "94103"
+    },
+    "organizationName": "St. Anthony Food Bank",
+    "ngoRegistrationNumber": "NGO-37263",
+    "ngoVerificationStatus": "pending",
+    "createdAt": "2026-10-25T16:51:58.744Z"
+  },
+  {
+    "id": "usr_volunteer_1792947118843",
+    "name": "Carlos Mendez",
+    "email": "volunteer_1792947118420@test.org",
+    "phone": "+1 555-888-0003",
+    "passwordHash": "$2b$10$ZEJbq4.zLdvc3VW8Y3Nw4.UOna74XVt9Na8IxNwzu16b6cA3WT5Jy",
+    "role": "volunteer",
+    "address": {
+      "street": "700 Market St, San Francisco, CA",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipCode": "94103"
+    },
+    "volunteerVehicleType": "Bike",
+    "createdAt": "2026-10-25T16:51:58.844Z"
+  }
+]
